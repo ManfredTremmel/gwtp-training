@@ -1,5 +1,8 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+  ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+  ui:generateLocales="en,de"
   xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
    <ui:style src="LoginViewImpl.gss" />
@@ -9,7 +12,7 @@
       cellspacing="0">
       <thead>
         <tr>
-          <th colspan="2" class="">Login</th>
+          <th colspan="2" class=""><ui:msg description="header">Login</ui:msg></th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +25,7 @@
         <!-- login_container -->
         <tr class="">
           <td class="fistCol">
-            <label for="customerId">Kundennummer</label>
+            <label for="customerId"><ui:msg description="customerId">Customernumber</ui:msg></label>
           </td>
           <td>
             <g:TextBox ui:field="inpUser" />
@@ -30,7 +33,7 @@
         </tr>
         <tr class="">
           <td class="">
-            <label for="password">Passwort</label>
+            <label for="password"><ui:msg description="password">Password</ui:msg></label>
           </td>
           <td>
             <g:PasswordTextBox ui:field="inpPwd" />
@@ -40,7 +43,7 @@
           <td></td>
           <td>
             <g:Button ui:field="btLogin" stylePrimaryName="{style.submitLogin}">
-              Login
+              <ui:msg description="loginButton">Login</ui:msg>
             </g:Button>
           </td>
         </tr>
@@ -49,7 +52,7 @@
           <td>
             <div id="forgot-form">
               <!-- forgot-form -->
-              <a href="#" class="{style.linking}">»&nbsp;Passwort vergessen</a>
+              <a href="#" class="{style.linking}"><ui:msg description="passwordForgotten">»&nbsp;Password forgotten</ui:msg></a>
             </div> <!-- /forgot-form -->
           </td>
         </tr>
@@ -61,10 +64,9 @@
           <td>
             <div id="register-form">
               <!-- register-form -->
-              Sie sind ein neuer Vertragspartner und möchten unsere
-              Bestellplattform nutzen:
+              <ui:msg description="contactFormHint">You are a contract parter and want to use our order plattform:</ui:msg>
               <br />
-              <a href="#" class="{style.linking}">»&nbsp;Zum Kontaktformular</a>
+              <a href="#" class="{style.linking}"><ui:msg description="contactForm">»&nbsp;To Contact Form</ui:msg></a>
               <br />
               <br />
             </div> <!-- /register-form -->
