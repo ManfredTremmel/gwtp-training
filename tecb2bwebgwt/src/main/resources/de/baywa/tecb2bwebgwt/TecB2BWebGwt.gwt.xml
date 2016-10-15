@@ -2,7 +2,7 @@
 <module rename-to='TecB2BWebGwt'>
 
   <!-- gwt bean validator. -->
-  <inherits name="de.knightsoftnet.mtwidgets.GwtMtWidgets" />
+  <inherits name="de.knightsoftnet.mtwidgets.GwtMtWidgetsSpringGwtp" />
 
   <!-- gwt injection support -->
   <inherits name="com.google.gwt.inject.Inject"/>

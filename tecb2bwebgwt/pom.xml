@@ -11,6 +11,12 @@
   <version>1.0-SNAPSHOT</version>
   <name>Maven Archetype for GWT</name>
 
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.1.RELEASE</version>
+  </parent>
+
   <properties>
     <!-- Convenience property to set the GWT version -->
     <gwt.version>2.8.0-rc3</gwt.version>
@@ -19,25 +25,16 @@
     <gwtp-dynamic-navigation.version>0.10.2</gwtp-dynamic-navigation.version>
     <guava-gwt.version>20.0-SNAPSHOT</guava-gwt.version>
     <gwt-mt-widgets.version>0.20.2</gwt-mt-widgets.version>
+    <gwt-jackson.version>0.13.0</gwt-jackson.version>
 
     <!-- GWT 2.8 needs at least java 1.8 -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
+    <war.name>tecb2bwebgwt</war.name>
+    <staticResourcesDirectory>${project.build.outputDirectory}/static</staticResourcesDirectory>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.google.gwt</groupId>
-        <artifactId>gwt</artifactId>
-        <version>${gwt.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <dependencies>
      <dependency>
@@ -52,6 +49,10 @@
       <classifier>sources</classifier>
     </dependency>
     <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava-gwt</artifactId>
       <version>${guava-gwt.version}</version>
@@ -59,23 +60,30 @@
     </dependency>
     <dependency>
       <groupId>de.knightsoft-net</groupId>
-      <artifactId>gwt-mt-widgets</artifactId>
+      <artifactId>gwt-mt-widgets-spring-gwtp</artifactId>
       <version>${gwt-mt-widgets.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-servlet</artifactId>
-      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava-gwt</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
       <scope>provided</scope>
+      <version>${gwt.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-dev</artifactId>
       <scope>provided</scope>
+      <version>${gwt.version}</version>
     </dependency>
 
     <!-- GWT-Platform dependencies -->
@@ -86,15 +94,57 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>com.gwtplatform</groupId>
+      <artifactId>gwtp-dispatch-rest</artifactId>
+      <version>${gwtp.version}</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.github.nmorel.gwtjackson</groupId>
+          <artifactId>gwt-jackson</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.gwt</groupId>
+          <artifactId>gwt-dev</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nmorel.gwtjackson</groupId>
+      <artifactId>gwt-jackson</artifactId>
+      <version>${gwt-jackson.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>de.knightsoft-net</groupId>
       <artifactId>gwtp-dynamic-navigation</artifactId>
       <version>${gwtp-dynamic-navigation.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jetty</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
-    <!-- Output classes directly into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->
-    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+    <finalName>${war.name}</finalName>
 
     <plugins>
 
@@ -106,21 +156,49 @@
         <executions>
           <execution>
             <goals>
+              <goal>resources</goal>
               <goal>compile</goal>
               <goal>test</goal>
-              <goal>generateAsync</goal>
             </goals>
           </execution>
         </executions>
         <!-- Plugin configuration. There are many available options, see 
           gwt-maven-plugin documentation at codehaus.org -->
         <configuration>
-          <runTarget>index.html</runTarget>
-          <modules>
-            <module>de.baywa.tecb2bwebgwt.TecB2BWebGwt</module>
-          </modules>
+          <logLevel>INFO</logLevel>
+          <inplace>false</inplace>
+          <failOnError>true</failOnError>
+          <style>OBFUSCATED</style>
+          <disableClassMetadata>true</disableClassMetadata>
+          <disableCastChecking>true</disableCastChecking>
+          <fragmentCount>2</fragmentCount>
+          <localWorkers>-1</localWorkers>
+          <extraJvmArgs>-Xms512m -Xmx1g</extraJvmArgs>
+          <outputDirectory>${staticResourcesDirectory}</outputDirectory>
+          <sourceLevel>${maven.compiler.source}</sourceLevel>
+          <extra>/tmp</extra>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <!-- Package as an executable JAR/WAR -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <addResources>false</addResources>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
