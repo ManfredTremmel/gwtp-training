@@ -1,7 +1,11 @@
 package de.baywa.tecb2bwebgwt.shared.dto;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class LoginDto {
+  @NotEmpty
   private String inpUser;
+  @NotEmpty
   private String inpPwd;
 
   public final String getInpUser() {

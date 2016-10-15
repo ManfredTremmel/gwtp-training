@@ -3,6 +3,7 @@
   ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
   ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
   ui:generateLocales="en,de"
+  xmlns:e="urn:import:de.knightsoftnet.validators.client.decorators"
   xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
    <ui:style src="LoginViewImpl.gss" />
@@ -28,7 +29,11 @@
             <label for="customerId"><ui:msg description="customerId">Customernumber</ui:msg></label>
           </td>
           <td>
-            <g:TextBox ui:field="inpUser" />
+            <e:UniversalDecorator errorLocation="RIGHT" ui:field="inpUser">
+              <e:widget>
+                <g:TextBox />
+              </e:widget>
+            </e:UniversalDecorator>
           </td>
         </tr>
         <tr class="">
@@ -36,7 +41,11 @@
             <label for="password"><ui:msg description="password">Password</ui:msg></label>
           </td>
           <td>
-            <g:PasswordTextBox ui:field="inpPwd" />
+            <e:UniversalDecorator errorLocation="RIGHT" ui:field="inpPwd">
+              <e:widget>
+                <g:PasswordTextBox />
+              </e:widget>
+            </e:UniversalDecorator>
           </td>
         </tr>
         <tr class="">

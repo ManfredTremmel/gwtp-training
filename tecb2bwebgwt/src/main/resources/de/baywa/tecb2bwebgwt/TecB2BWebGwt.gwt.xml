@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='TecB2BWebGwt'>
+
+  <!-- gwt bean validator. -->
+  <inherits name="de.knightsoftnet.validators.GwtBeanValidators" />
+
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User' />
 
@@ -32,6 +36,11 @@
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='de.baywa.tecb2bwebgwt.client.TecB2BWebGwt' />
+
+  <!-- use own class for validation on client side -->
+  <replace-with class="de.baywa.tecb2bwebgwt.client.validation.ValidatorFactory">
+    <when-type-is class="javax.validation.ValidatorFactory" />
+  </replace-with>
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />
