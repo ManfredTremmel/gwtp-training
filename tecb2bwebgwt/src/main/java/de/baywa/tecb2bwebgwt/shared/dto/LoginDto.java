@@ -2,7 +2,11 @@ package de.baywa.tecb2bwebgwt.shared.dto;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class LoginDto {
+import java.io.Serializable;
+
+public class LoginDto implements Serializable {
+  private static final long serialVersionUID = -5055908276783782627L;
+
   @NotEmpty
   private String inpUser;
   @NotEmpty
