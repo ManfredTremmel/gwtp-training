@@ -1,0 +1,8 @@
+/target/
+/.settings/
+/.project
+/.classpath
+/.checkstyle
+/.pmd
+/sample.log
+/gwt-unitCache/
