@@ -1,12 +1,12 @@
 package de.baywa.tecb2bwebgwt.client.ui.page.logout;
 
-import de.baywa.tecb2bwebgwt.client.SessionData;
+import de.baywa.tecb2bwebgwt.client.services.LoginLogoutRestService;
 import de.baywa.tecb2bwebgwt.client.ui.basepage.BasePagePresenter;
 import de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens;
-import de.baywa.tecb2bwebgwt.shared.rpc.LoginLogoutRemoteServiceAsync;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.dispatch.rest.client.RestDispatch;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
@@ -18,6 +18,7 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import javax.inject.Inject;
 
 import de.knightsoftnet.navigation.client.gatekeepers.LoggedInGatekeeper;
+import de.knightsoftnet.navigation.client.session.Session;
 
 /**
  * Activity/Presenter of the logout, implementation.
@@ -38,8 +39,9 @@ public class LogoutPresenter extends Presenter<LogoutPresenter.MyView, LogoutPre
   public interface MyProxy extends ProxyPlace<LogoutPresenter> {
   }
 
-  private final LoginLogoutRemoteServiceAsync service;
-  private final SessionData sessionData;
+  private final RestDispatch dispatcher;
+  private final LoginLogoutRestService service;
+  private final Session session;
 
   /**
    * constructor injecting parameters.
@@ -48,21 +50,22 @@ public class LogoutPresenter extends Presenter<LogoutPresenter.MyView, LogoutPre
    * @param pview view of the page
    * @param pproxy proxy of the page
    * @param pservice user remote service
-   * @param psessionData session data
+   * @param psession session data
    */
   @Inject
   public LogoutPresenter(final EventBus peventBus, final LogoutPresenter.MyView pview,
-      final MyProxy pproxy, final LoginLogoutRemoteServiceAsync pservice,
-      final SessionData psessionData) {
+      final MyProxy pproxy, final RestDispatch pdispatcher, final LoginLogoutRestService pservice,
+      final Session psession) {
     super(peventBus, pview, pproxy, BasePagePresenter.SLOT_MAIN_CONTENT);
+    this.dispatcher = pdispatcher;
     this.service = pservice;
-    this.sessionData = psessionData;
+    this.session = psession;
   }
 
   @Override
   protected void onReveal() {
     super.onReveal();
-    this.service.logout(new AsyncCallback<Void>() {
+    this.dispatcher.execute(this.service.logout(), new AsyncCallback<Void>() {
 
       @Override
       public void onFailure(final Throwable pcaught) {
@@ -74,6 +77,6 @@ public class LogoutPresenter extends Presenter<LogoutPresenter.MyView, LogoutPre
         // TODO Auto-generated method stub
       }
     });
-    this.sessionData.setUser(null);
+    this.session.setUser(null);
   }
 }

@@ -13,5 +13,6 @@ public class ClientModule extends AbstractPresenterModule {
         .errorPlace(NameTokens.LOGIN).unauthorizedPlace(NameTokens.LOGIN).build());
 
     this.install(new ApplicationModule());
+    this.install(new DispatchModule());
   }
 }

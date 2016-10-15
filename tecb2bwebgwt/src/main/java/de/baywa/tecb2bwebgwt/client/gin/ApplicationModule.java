@@ -37,7 +37,7 @@ import de.baywa.tecb2bwebgwt.client.ui.page.settings.SettingsPresenter;
 import de.baywa.tecb2bwebgwt.client.ui.page.settings.SettingsViewImpl;
 import de.baywa.tecb2bwebgwt.client.ui.page.sparepartsdocs.SparePartsDocsPresenter;
 import de.baywa.tecb2bwebgwt.client.ui.page.sparepartsdocs.SparePartsDocsViewImpl;
-import de.baywa.tecb2bwebgwt.shared.rpc.LoginLogoutRemoteServiceAsync;
+import de.baywa.tecb2bwebgwt.shared.dto.UserDto;
 
 import com.google.inject.Singleton;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
@@ -45,6 +45,7 @@ import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import de.knightsoftnet.navigation.client.session.Session;
 import de.knightsoftnet.navigation.client.ui.navigation.NavigationPresenter;
 import de.knightsoftnet.navigation.client.ui.navigation.NavigationStructure;
+import de.knightsoftnet.navigation.shared.models.User;
 
 public class ApplicationModule extends AbstractPresenterModule {
 
@@ -92,7 +93,7 @@ public class ApplicationModule extends AbstractPresenterModule {
 
     this.bind(NavigationStructure.class).to(MyNavigationStructure.class).in(Singleton.class);
 
-    this.bind(LoginLogoutRemoteServiceAsync.class).in(Singleton.class);
+    this.bind(User.class).to(UserDto.class).in(Singleton.class);
     this.bind(Session.class).to(SessionData.class).in(Singleton.class);
   }
 }

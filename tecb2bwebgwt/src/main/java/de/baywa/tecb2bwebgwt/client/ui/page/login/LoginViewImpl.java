@@ -69,7 +69,13 @@ public class LoginViewImpl extends ViewImpl implements LoginPresenter.MyView {
   }
 
   @Override
-  public void displayValidationErrors(final ArrayList<ConstraintViolation<?>> perrors) {
-    this.driver.setConstraintViolations(perrors);
+  public void setConstraintViolations(final ArrayList<ConstraintViolation<?>> pvalidationErrorSet) {
+    this.driver.setConstraintViolations(pvalidationErrorSet);
+  }
+
+  @Override
+  public void showMessage(final String pmessage) {
+    // TODO Auto-generated method stub
+
   }
 }
