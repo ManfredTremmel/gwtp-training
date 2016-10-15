@@ -1,8 +1,12 @@
 package de.baywa.tecb2bwebgwt.shared.dto;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 
-public class UserDto implements Serializable {
+import de.knightsoftnet.navigation.shared.models.User;
+
+public class UserDto implements Serializable, User {
   private static final long serialVersionUID = 6580037177274322029L;
 
   private String user;
@@ -31,5 +35,20 @@ public class UserDto implements Serializable {
 
   public void setLastName(final String plastName) {
     this.lastName = plastName;
+  }
+
+  @Override
+  public void setUserName(final String puserName) {
+    this.user = puserName;
+  }
+
+  @Override
+  public String getUserName() {
+    return this.user;
+  }
+
+  @Override
+  public boolean isLoggedIn() {
+    return StringUtils.isNotEmpty(this.user);
   }
 }

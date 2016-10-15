@@ -1,5 +1,7 @@
 package de.baywa.tecb2bwebgwt.client.ui.page.login;
 
+import de.baywa.tecb2bwebgwt.client.SessionData;
+import de.baywa.tecb2bwebgwt.client.ui.basepage.BasePagePresenter;
 import de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens;
 import de.baywa.tecb2bwebgwt.shared.dto.LoginDto;
 import de.baywa.tecb2bwebgwt.shared.dto.UserDto;
@@ -74,6 +76,7 @@ public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresen
    */
   private final LoginDto loginData;
   private final LoginLogoutRemoteServiceAsync service;
+  private final SessionData sessionData;
 
   /**
    * constructor injecting parameters.
@@ -82,12 +85,15 @@ public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresen
    * @param pview page view
    * @param pproxy page proxy
    * @param pservice remote user service
+   * @param psessionData session data
    */
   @Inject
   public LoginPresenter(final EventBus peventBus, final LoginPresenter.MyView pview,
-      final MyProxy pproxy, final LoginLogoutRemoteServiceAsync pservice) {
-    super(peventBus, pview, pproxy, RevealType.Root);
+      final MyProxy pproxy, final LoginLogoutRemoteServiceAsync pservice,
+      final SessionData psessionData) {
+    super(peventBus, pview, pproxy, BasePagePresenter.SLOT_MAIN_CONTENT);
     this.service = pservice;
+    this.sessionData = psessionData;
     this.loginData = new LoginDto();
     this.getView().setPresenter(this);
     this.getView().fillForm(this.loginData);
@@ -119,7 +125,7 @@ public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresen
 
       @Override
       public void onSuccess(final UserDto presult) {
-        Window.alert("Login ok for user: " + presult.getUser());
+        LoginPresenter.this.sessionData.setUser(presult);
       }
     });
   }
