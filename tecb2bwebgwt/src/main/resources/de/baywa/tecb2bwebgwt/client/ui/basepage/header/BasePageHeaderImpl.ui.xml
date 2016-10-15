@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+  <ui:image field="resDefaultLogo" src="clop_default_internet_logo.png" />
+  <ui:style src="BasePageHeaderImpl.gss"/>
+
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.OVERVIEW"/>
+
+  <g:HTMLPanel styleName="{style.header}">
+    <g:InlineHyperlink targetHistoryToken="{OVERVIEW}" styleName="{style.anchor}" ui:field="anchorfield">&nbsp;</g:InlineHyperlink>
+  </g:HTMLPanel>
+</ui:UiBinder> 

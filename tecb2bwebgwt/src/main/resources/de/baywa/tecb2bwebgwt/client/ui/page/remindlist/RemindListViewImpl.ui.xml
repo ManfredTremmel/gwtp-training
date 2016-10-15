@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+  ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+  ui:generateLocales="en,de"
+  xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+  <ui:style src="RemindListViewImpl.gss"/>
+
+  <g:HTMLPanel styleName="{style.centerPanel}">
+   <g:HTML styleName="{style.header}">
+     <h1><ui:msg description="header">Remind List Page</ui:msg></h1>
+   </g:HTML>
+   <g:HTML styleName="{style.output}">
+     <h1><ui:msg description="text">This Page is only a place holder.</ui:msg></h1>
+   </g:HTML>
+  </g:HTMLPanel>
+</ui:UiBinder>

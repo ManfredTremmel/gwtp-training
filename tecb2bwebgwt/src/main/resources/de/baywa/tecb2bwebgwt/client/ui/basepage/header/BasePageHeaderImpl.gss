@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background-image: resourceUrl("resDefaultLogo");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #abb100;
+  margin-bottom: 17px;
+}
+.anchor {
+  width: 100%;
+  height: 50px;
+  display: inline-block;
+  color: white;
+  text-decoration: initial;
+  font-size: 24px;
+  font-family: Arial;
+  text-shadow: 3px 4px 5px #6b7100;
+  padding-left: 40px;
+  padding-top: 25px;
+}

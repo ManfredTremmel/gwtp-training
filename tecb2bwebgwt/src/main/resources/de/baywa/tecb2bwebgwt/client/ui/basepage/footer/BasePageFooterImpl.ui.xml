@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+  ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+  ui:generateLocales="en,de"
+  xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+  <ui:style src="BasePageFooterImpl.gss"/>
+
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.GTC"/>
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.PRIVACY"/>
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.IMPRINT"/>
+
+  <g:HTMLPanel>
+    <g:FlowPanel styleName="{style.footer}">
+      <g:InlineHyperlink targetHistoryToken="{GTC}"><ui:msg description="General Terms and Conditions">GTC</ui:msg></g:InlineHyperlink>
+      <g:Label>|</g:Label>
+      <g:InlineHyperlink targetHistoryToken="{PRIVACY}"><ui:msg description="Privacy">Privacy</ui:msg></g:InlineHyperlink>
+      <g:Label>|</g:Label>
+      <g:InlineHyperlink targetHistoryToken="{IMPRINT}"><ui:msg description="Imprint">Imprint</ui:msg></g:InlineHyperlink>
+      <g:Anchor ui:field="print" styleName="{style.print}"><ui:msg description="Print">Print</ui:msg></g:Anchor>
+    </g:FlowPanel>
+  </g:HTMLPanel>
+</ui:UiBinder>

@@ -9,7 +9,7 @@ public class ClientModule extends AbstractPresenterModule {
 
   @Override
   protected void configure() {
-    this.install(new DefaultModule.Builder().defaultPlace(NameTokens.LOGIN)
+    this.install(new DefaultModule.Builder().defaultPlace(NameTokens.OVERVIEW)
         .errorPlace(NameTokens.LOGIN).unauthorizedPlace(NameTokens.LOGIN).build());
 
     this.install(new ApplicationModule());

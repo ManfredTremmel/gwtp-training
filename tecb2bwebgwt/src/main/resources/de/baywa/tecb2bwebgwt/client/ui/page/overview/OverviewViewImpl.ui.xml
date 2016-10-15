@@ -1,0 +1,45 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+  ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+  ui:generateLocales="en,de" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+  <ui:image field="resKachelBlank" src="kachel_blank.png" />
+  <ui:style src="OverviewViewImpl.gss" />
+
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.QUICKFIND"/>
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.DETAILSANDSEARCH"/>
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.ARTICLEUPLOAD"/>
+  <ui:import field="de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens.DEALERPROFILE"/>
+
+  <g:HTMLPanel styleName="{style.centerPanel}">
+    <div class="{style.leftContent}">&nbsp;</div>
+    <div class="{style.mainContent}">
+      <table cellpadding="1" cellspacing="3" class="{style.mainTable}">
+        <tbody>
+          <tr>
+            <td colspan="3" class="{style.itemDescrHead}"><ui:msg description="header">Main Overview</ui:msg></td>
+          </tr>
+          <tr>
+            <td>
+              <g:InlineHyperlink targetHistoryToken="{QUICKFIND}" styleName="{style.themeBlockOverview}"><ui:msg description="quckFind">Quick Find</ui:msg></g:InlineHyperlink>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+              <g:InlineHyperlink targetHistoryToken="{DETAILSANDSEARCH}" styleName="{style.themeBlockOverview}"><ui:msg description="detailsAndSearch">Article-Details</ui:msg></g:InlineHyperlink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <g:InlineHyperlink targetHistoryToken="{ARTICLEUPLOAD}" styleName="{style.themeBlockOverview}"><ui:msg description="articleUpload">Article Upload</ui:msg></g:InlineHyperlink>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+              <g:InlineHyperlink targetHistoryToken="{DEALERPROFILE}" styleName="{style.themeBlockOverview}"><ui:msg description="dealerProfile">MyCLAAS</ui:msg></g:InlineHyperlink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </g:HTMLPanel>
+</ui:UiBinder>

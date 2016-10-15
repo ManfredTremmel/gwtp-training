@@ -2,14 +2,17 @@
 <module rename-to='TecB2BWebGwt'>
 
   <!-- gwt bean validator. -->
-  <inherits name="de.knightsoftnet.validators.GwtBeanValidators" />
+  <inherits name="de.knightsoftnet.mtwidgets.GwtMtWidgets" />
 
   <!-- gwt injection support -->
   <inherits name="com.google.gwt.inject.Inject"/>
 
   <!-- gwtp mvp support -->
   <inherits name='com.gwtplatform.mvp.MvpWithEntryPoint'/>
- 
+
+  <!-- gwtp dynamic navigation -->
+  <inherits name="de.knightsoftnet.navigation.GwtpDynamicNavigation" />
+
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
   <!-- any one of the following lines.                            -->

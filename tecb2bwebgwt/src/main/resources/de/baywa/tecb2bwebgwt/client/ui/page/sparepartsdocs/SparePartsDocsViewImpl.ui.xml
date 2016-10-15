@@ -1,0 +1,35 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+  ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+  ui:generateLocales="en,de" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+  <ui:image field="resPartsLogo" src="claas_parts.png" />
+  <ui:style src="SparePartsDocsViewImpl.gss" />
+  
+  <g:HTMLPanel styleName="{style.centerPanel}">
+    <div class="{style.leftContent}">&nbsp;</div>
+    <div class="{style.mainContent}">
+      <table cellpadding="1" cellspacing="3" class="{style.mainTable}">
+        <tbody>
+          <tr>
+            <td class="{style.itemDescrHead}"><ui:msg description="header">Spareparts Documentation</ui:msg></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="{style.themeBlock}">
+                <a class="{style.link}" href="http://www.claas.com/cl-gr/de/hond/hondstart" target="_blank">
+                  <ui:msg description="linkText">» Go to CLAAS Spareparts Documentation</ui:msg>
+                  <br />
+                  <img src="{resPartsLogo.getSafeUri}" width="181" height="120" alt="CLAAS Parts">
+                    <ui:attribute name="alt"/>
+                  </img>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </g:HTMLPanel>
+</ui:UiBinder>

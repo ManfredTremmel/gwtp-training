@@ -1,0 +1,83 @@
+@defmixin boxShadow(SHADOWWIDTH, COLOR) {
+  box-shadow: SHADOWWIDTH SHADOWWIDTH SHADOWWIDTH COLOR;
+}
+@defmixin webkitBoxShadow(SHADOWWIDTH, COLOR) {
+  -webkit-box-shadow: SHADOWWIDTH SHADOWWIDTH SHADOWWIDTH COLOR;
+}
+@defmixin mozBoxShadow(SHADOWWIDTH, COLOR) {
+  -moz-box-shadow: SHADOWWIDTH SHADOWWIDTH SHADOWWIDTH COLOR;
+}
+
+.centerPanel {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.leftContent {
+  width: 147px;
+  min-height: 2048px;
+  padding: 10px;
+  margin: 0 3px 0 0;
+  overflow: hidden;
+  float: left;
+  background-color: #e6e9be;
+}
+.mainContent {
+  min-height: 350px;
+  position: absolute;
+  width: 100%;
+}
+@if (is("safari")) {
+  .mainTable {
+    @mixin webkitBoxShadow(5px, #bebebe);
+  }
+} @elseif (is("gecko1_8")) {
+  .mainTable {
+    @mixin mozBoxShadow(5px, #bebebe);
+  }
+} @elseif (is("ie8")) {
+  .mainTable {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color='#bebebe', Direction=135, Strength=5px)";
+    filter: "progid:DXImageTransform.Microsoft.Shadow(color='#bebebe', Direction=135, Strength=5px)";
+  }
+}
+.mainTable {
+  width: 805px;
+  padding: 60px 60px 60px 170px;
+  margin: auto;
+  margin-top: 30px;
+  @mixin boxShadow(5px, #bebebe);
+}
+.itemDescrHead {
+  text-align: center;
+  background-color: #a9b628;
+  font-weight: bold;
+  height: 30px;
+}
+@if (is("safari")) {
+  .themeBlock {
+    @mixin webkitBoxShadow(3px, #bebebe);
+  }
+} @elseif (is("gecko1_8")) {
+  .themeBlock {
+    @mixin mozBoxShadow(3px, #bebebe);
+    -moz-border-radius: 5px;
+  }
+} @elseif (is("ie8") || is("ie9") || is("ie10")) {
+  .themeBlock {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color='#bebebe', Direction=135, Strength=3px)";
+    filter: "progid:DXImageTransform.Microsoft.Shadow(color='#bebebe', Direction=135, Strength=3px)";
+  }
+}
+.themeBlock {
+  margin-top: 30px;
+  padding: 30px;
+  text-align: center;
+  background-color: #e3e3e3;
+  @mixin boxShadow(3px, #bebebe);
+  border-radius: 5px;
+}
+.link {
+  text-decoration: none;
+  color: #000;
+}

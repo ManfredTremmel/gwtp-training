@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+  ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+  ui:generateLocales="en,de"
+  xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:w="urn:import:de.knightsoftnet.mtwidgets.client.ui.widget">
+
+  <ui:style src="SettingsViewImpl.gss"/>
+
+  <g:HTMLPanel styleName="{style.centerPanel}">
+   <h1 class="{style.header}"><ui:msg description="header">Settings</ui:msg></h1>
+   <div class="{style.form}">
+     <div class="{style.labelLanguages}"><ui:msg description="languageLabel">Language:</ui:msg></div>
+     <w:UiLanguageListBox styleName="{style.inputLanguages}" ui:field="language" />
+   </div>
+  </g:HTMLPanel>
+</ui:UiBinder>

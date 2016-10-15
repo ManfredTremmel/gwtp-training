@@ -15,8 +15,10 @@
     <!-- Convenience property to set the GWT version -->
     <gwt.version>2.8.0-rc3</gwt.version>
     <validation-api.version>1.1.0.Final</validation-api.version>
-    <gwt-bean-validators.version>0.20.2</gwt-bean-validators.version>
     <gwtp.version>1.5.3</gwtp.version>
+    <gwtp-dynamic-navigation.version>0.10.2</gwtp-dynamic-navigation.version>
+    <guava-gwt.version>20.0-SNAPSHOT</guava-gwt.version>
+    <gwt-mt-widgets.version>0.20.2</gwt-mt-widgets.version>
 
     <!-- GWT 2.8 needs at least java 1.8 -->
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -50,9 +52,15 @@
       <classifier>sources</classifier>
     </dependency>
     <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava-gwt</artifactId>
+      <version>${guava-gwt.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>de.knightsoft-net</groupId>
-      <artifactId>gwt-bean-validators</artifactId>
-      <version>${gwt-bean-validators.version}</version>
+      <artifactId>gwt-mt-widgets</artifactId>
+      <version>${gwt-mt-widgets.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
@@ -76,6 +84,11 @@
       <artifactId>gwtp-mvp-client</artifactId>
       <version>${gwtp.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.knightsoft-net</groupId>
+      <artifactId>gwtp-dynamic-navigation</artifactId>
+      <version>${gwtp-dynamic-navigation.version}</version>
     </dependency>
   </dependencies>
 
