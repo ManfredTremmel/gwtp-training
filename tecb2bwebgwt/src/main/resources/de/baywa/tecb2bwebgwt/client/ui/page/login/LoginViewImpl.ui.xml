@@ -2,8 +2,10 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
   xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
-  <g:HTMLPanel>
-    <table class="login_forgot" border="0" cellpadding="5"
+   <ui:style src="LoginViewImpl.gss" />
+
+   <g:HTMLPanel styleName="{style.centerPanel}">
+    <table class="{style.loginForgot}" border="0" cellpadding="5"
       cellspacing="0">
       <thead>
         <tr>
@@ -12,7 +14,7 @@
       </thead>
       <tbody>
         <tr>
-          <td colspan="2" class="shim_d0d789"></td>
+          <td colspan="2" class="{style.separator}"></td>
         </tr>
         <tr>
           <td colspan="2"></td>
@@ -37,7 +39,7 @@
         <tr class="">
           <td></td>
           <td>
-            <g:Button ui:field="btLogin" stylePrimaryName="submitLogin">
+            <g:Button ui:field="btLogin" stylePrimaryName="{style.submitLogin}">
               Login
             </g:Button>
           </td>
@@ -47,12 +49,12 @@
           <td>
             <div id="forgot-form">
               <!-- forgot-form -->
-              <a href="#" class="forgot">»&nbsp;Passwort vergessen</a>
+              <a href="#" class="{style.linking}">»&nbsp;Passwort vergessen</a>
             </div> <!-- /forgot-form -->
           </td>
         </tr>
         <tr>
-          <td colspan="2" class="shim_d0d789"></td>
+          <td colspan="2" class="{style.separator}"></td>
         </tr>
         <tr class="">
           <td></td>
@@ -62,7 +64,7 @@
               Sie sind ein neuer Vertragspartner und möchten unsere
               Bestellplattform nutzen:
               <br />
-              <a href="#" class="register">»&nbsp;Zum Kontaktformular</a>
+              <a href="#" class="{style.linking}">»&nbsp;Zum Kontaktformular</a>
               <br />
               <br />
             </div> <!-- /register-form -->

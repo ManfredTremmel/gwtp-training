@@ -1,0 +1,97 @@
+@defmixin boxShadow(SHADOWWIDTH, COLOR) {
+  box-shadow: SHADOWWIDTH SHADOWWIDTH SHADOWWIDTH COLOR;
+}
+@defmixin webkitBoxShadow(SHADOWWIDTH, COLOR) {
+  -webkit-box-shadow: SHADOWWIDTH SHADOWWIDTH SHADOWWIDTH COLOR;
+}
+@defmixin mozBoxShadow(SHADOWWIDTH, COLOR) {
+  -moz-box-shadow: SHADOWWIDTH SHADOWWIDTH SHADOWWIDTH COLOR;
+}
+
+.centerPanel {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.msgBox {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 3px;
+}
+.error {
+  width: 75%;
+  margin: auto;
+  color: red;
+  text-align: center;
+  border-radius: 5px;
+  border-left: 25px solid red;
+  border-bottom: 1px solid red;
+  border-right: 1px solid red;
+  border-top: 1px solid red;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+@if (is("safari")) {
+  .loginForgot {
+    @mixin webkitBoxShadow(5px, #bebebe);
+  }
+} @elseif (is("gecko1_8")) {
+  .loginForgot {
+    @mixin mozBoxShadow(5px, #bebebe);
+  }
+} @elseif (is("ie8")) {
+  .loginForgot {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color='#bebebe', Direction=135, Strength=5px)";
+    filter: "progid:DXImageTransform.Microsoft.Shadow(color='#bebebe', Direction=135, Strength=5px)";
+  }
+}
+.loginForgot {
+  width: 500px;
+  border: none;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  font-size: 12px;
+  @mixin boxShadow(5px, #bebebe);
+}
+.header {
+  position: relative;
+  text-align: center;
+}
+.separator {
+  height: 1px;
+  background-color: #abb100;
+  padding: 0;
+  margin: 0;
+}
+@if (is("gecko1_8")) {
+  .submitLogin {
+    /* Schlagschatten Firefox */
+    -moz-border-radius: 5px;
+  }
+}
+.submitLogin {
+  text-align: left;
+  cursor: pointer;
+  font-weight: bold;
+  width: 220px;
+
+  background-color: #efefef; /* Grau */
+  padding: 7px;
+  margin: 10px 5px 10px 0px;
+  border: 2px solid #d9d9d9; /* Grau (Leicht dunkler) */
+
+  border-radius: 5px; 
+}
+.linking {
+  font-size: 11px;
+  text-decoration: none;
+  color: #6c7600;
+  font-weight: bold;
+  cursor: pointer;
+}
+.input {
+  border: 1px solid #d0d789;
+  width: 220px;
+}

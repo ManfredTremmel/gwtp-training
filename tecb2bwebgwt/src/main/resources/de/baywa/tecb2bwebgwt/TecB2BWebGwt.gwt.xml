@@ -12,6 +12,11 @@
 
   <!-- Other module inherits                                      -->
 
+  <!-- enable gss instead of css -->
+  <set-configuration-property name="CssResource.enableGss" value="true" />
+  <set-configuration-property name="CssResource.gssDefaultInUiBinder" value="true" />
+  <set-configuration-property name="CssResource.conversionMode" value="strict" />
+
   <!-- Specify the app entry point class.                         -->
   <entry-point class='de.baywa.tecb2bwebgwt.client.TecB2BWebGwt' />
 
