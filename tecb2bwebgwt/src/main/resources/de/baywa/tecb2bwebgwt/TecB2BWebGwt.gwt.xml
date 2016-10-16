@@ -23,6 +23,9 @@
   <!-- localization support                                       -->
   <inherits name='com.google.gwt.i18n.I18N' />
 
+  <!-- html 5 push state support -->
+  <inherits name="com.wallissoftware.pushstate.PushState" />
+
   <!-- Other module inherits                                      -->
 
   <!-- enable gss instead of css -->

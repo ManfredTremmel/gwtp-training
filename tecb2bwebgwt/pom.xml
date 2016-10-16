@@ -26,6 +26,8 @@
     <guava-gwt.version>20.0-SNAPSHOT</guava-gwt.version>
     <gwt-mt-widgets.version>0.20.2</gwt-mt-widgets.version>
     <gwt-jackson.version>0.13.0</gwt-jackson.version>
+    <gwt-pushstate.version>2.0.0.8</gwt-pushstate.version>
+    <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
 
     <!-- GWT 2.8 needs at least java 1.8 -->
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -114,6 +116,16 @@
       <artifactId>gwt-jackson</artifactId>
       <version>${gwt-jackson.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.knightsoft-net</groupId>
+      <artifactId>gwt-pushstate</artifactId>
+      <version>${gwt-pushstate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tuckey</groupId>
+      <artifactId>urlrewritefilter</artifactId>
+      <version>${urlrewritefilter.version}</version>
     </dependency>
     <dependency>
       <groupId>de.knightsoft-net</groupId>
