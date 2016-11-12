@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+    "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
 <module rename-to='TecB2BWebGwt'>
 
   <!-- gwt bean validator. -->
@@ -42,6 +44,10 @@
   <set-configuration-property name='locale.cookie' value='LOCALE' />
   <set-configuration-property name='locale.searchorder'
       value='queryparam,cookie,useragent' />
+
+  <!-- limit browsers for shorter compile time
+  <set-property name="user.agent" value="gecko1_8,safari"/> -->
+  <set-property name="user.agent" value="ie8,ie9,ie10,safari,gecko1_8"/>
 
   <!-- use own class for validation on client side -->
   <replace-with class="de.baywa.tecb2bwebgwt.client.validation.ValidatorFactory">
