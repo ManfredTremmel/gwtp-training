@@ -26,7 +26,7 @@
     <gwtp-dynamic-navigation.version>0.10.5</gwtp-dynamic-navigation.version>
     <gwt-mt-widgets.version>0.22.0</gwt-mt-widgets.version>
     <gwt-jackson.version>0.14.1</gwt-jackson.version>
-    <gwt-pushstate.version>2.0.0.10</gwt-pushstate.version>
+    <gwt-pushstate.version>2.0.0.11</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
 
     <!-- GWT 2.8 needs at least java 1.8 -->
