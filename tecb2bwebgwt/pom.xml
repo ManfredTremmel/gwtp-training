@@ -24,7 +24,7 @@
     <hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
     <gwtp.version>1.5.3</gwtp.version>
     <gwtp-dynamic-navigation.version>0.10.5</gwtp-dynamic-navigation.version>
-    <gwt-mt-widgets.version>0.22.2</gwt-mt-widgets.version>
+    <gwt-mt-widgets.version>0.22.3</gwt-mt-widgets.version>
     <gwt-jackson.version>0.14.1</gwt-jackson.version>
     <gwt-pushstate.version>2.0.0.11</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
