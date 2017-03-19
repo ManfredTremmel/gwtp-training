@@ -24,7 +24,7 @@
     <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
     <gwtp.version>1.6</gwtp.version>
     <gwtp-dynamic-navigation.version>0.10.6</gwtp-dynamic-navigation.version>
-    <gwt-mt-widgets.version>0.40.0</gwt-mt-widgets.version>
+    <gwt-mt-widgets.version>0.40.1</gwt-mt-widgets.version>
     <gwt-jackson.version>0.14.2</gwt-jackson.version>
     <gwt-pushstate.version>2.0.0.12</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
@@ -42,7 +42,7 @@
      <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
-      <version>${validation-api.version}</version>
+      <version>${validation-api.version}</version><!--$NO-MVN-MAN-VER$-->
     </dependency>
     <dependency>
       <groupId>javax.validation</groupId>
@@ -184,7 +184,9 @@
           <extraJvmArgs>-Xms512m -Xmx1g</extraJvmArgs>
           <outputDirectory>${staticResourcesDirectory}</outputDirectory>
           <sourceLevel>${maven.compiler.source}</sourceLevel>
+          <extraParam>true</extraParam>
           <extra>/tmp</extra>
+          <persistentunitcache>false</persistentunitcache>
         </configuration>
       </plugin>
 
