@@ -14,7 +14,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.3.RELEASE</version>
+    <version>1.5.4.RELEASE</version>
   </parent>
 
   <properties>
@@ -23,10 +23,10 @@
     <validation-api.version>1.1.0.Final</validation-api.version>
     <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
     <gwtp.version>1.6</gwtp.version>
-    <gwtp-dynamic-navigation.version>0.10.6</gwtp-dynamic-navigation.version>
-    <gwt-mt-widgets.version>0.41.2</gwt-mt-widgets.version>
+    <gwtp-dynamic-navigation.version>0.11.0</gwtp-dynamic-navigation.version>
+    <gwt-mt-widgets.version>0.43.0</gwt-mt-widgets.version>
     <gwt-jackson.version>0.14.2</gwt-jackson.version>
-    <gwt-pushstate.version>2.0.0.12</gwt-pushstate.version>
+    <gwt-pushstate.version>2.0.0.13</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
 
     <!-- GWT 2.8 needs at least java 1.8 -->
