@@ -14,7 +14,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.4.RELEASE</version>
+    <version>1.5.6.RELEASE</version>
   </parent>
 
   <properties>
@@ -24,7 +24,7 @@
     <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
     <gwtp.version>1.6</gwtp.version>
     <gwtp-dynamic-navigation.version>0.11.0</gwtp-dynamic-navigation.version>
-    <gwt-mt-widgets.version>0.43.0</gwt-mt-widgets.version>
+    <gwt-mt-widgets.version>0.44.0</gwt-mt-widgets.version>
     <gwt-jackson.version>0.14.2</gwt-jackson.version>
     <gwt-pushstate.version>2.0.0.13</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>

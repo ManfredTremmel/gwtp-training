@@ -4,7 +4,8 @@
   ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
   ui:generateLocales="en,de"
   xmlns:e="urn:import:de.knightsoftnet.validators.client.decorators"
-  xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:w="urn:import:de.knightsoftnet.mtwidgets.client.ui.widget">
 
    <ui:style src="LoginViewImpl.gss" />
 
@@ -31,7 +32,7 @@
           <td>
             <e:UniversalDecorator errorLocation="RIGHT" ui:field="inpUser">
               <e:widget>
-                <g:TextBox />
+                <w:TextBox autofocus="true" />
               </e:widget>
             </e:UniversalDecorator>
           </td>
@@ -43,7 +44,7 @@
           <td>
             <e:UniversalDecorator errorLocation="RIGHT" ui:field="inpPwd">
               <e:widget>
-                <g:PasswordTextBox />
+                <w:PasswordTextBox />
               </e:widget>
             </e:UniversalDecorator>
           </td>

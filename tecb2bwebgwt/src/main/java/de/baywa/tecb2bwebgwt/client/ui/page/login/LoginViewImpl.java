@@ -6,18 +6,16 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.gwtplatform.mvp.client.ViewImpl;
 
 import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-
-import java.util.ArrayList;
 
 import de.knightsoftnet.validators.client.decorators.UniversalDecorator;
 import de.knightsoftnet.validators.client.editor.BeanValidationEditorDriver;
 import de.knightsoftnet.validators.client.event.FormSubmitEvent;
+import de.knightsoftnet.validators.client.rest.helper.AbstractViewWithErrorHandling;
 
-public class LoginViewImpl extends ViewImpl implements LoginPresenter.MyView {
+public class LoginViewImpl extends AbstractViewWithErrorHandling<LoginPresenter, LoginDto>
+    implements LoginPresenter.MyView {
 
   @UiField
   UniversalDecorator<String> inpUser;
@@ -34,22 +32,13 @@ public class LoginViewImpl extends ViewImpl implements LoginPresenter.MyView {
   interface Driver extends BeanValidationEditorDriver<LoginDto, LoginViewImpl> {
   }
 
-  private final Driver driver;
-  private LoginPresenter presenter;
-
   @Inject
   public LoginViewImpl(final Driver pdriver, final LoginViewImplUiBinder puiBinder) {
-    super();
-    this.driver = pdriver;
+    super(pdriver);
     this.initWidget(puiBinder.createAndBindUi(this));
     this.driver.initialize(this);
     this.driver.setSubmitButton(this.btLogin);
     this.driver.addFormSubmitHandler(this);
-  }
-
-  @Override
-  public void setPresenter(final LoginPresenter ppresenter) {
-    this.presenter = ppresenter;
   }
 
   @Override
@@ -58,24 +47,7 @@ public class LoginViewImpl extends ViewImpl implements LoginPresenter.MyView {
   }
 
   @Override
-  public void fillForm(final LoginDto puser) {
-    this.driver.edit(puser);
-
-  }
-
-  @Override
-  public void setFocusOnFirstWidget() {
-    this.inpUser.setFocus(true);
-  }
-
-  @Override
-  public void setConstraintViolations(final ArrayList<ConstraintViolation<?>> pvalidationErrorSet) {
-    this.driver.setConstraintViolations(pvalidationErrorSet);
-  }
-
-  @Override
   public void showMessage(final String pmessage) {
     // TODO Auto-generated method stub
-
   }
 }

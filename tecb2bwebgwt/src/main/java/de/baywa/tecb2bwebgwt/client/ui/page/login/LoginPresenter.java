@@ -6,10 +6,8 @@ import de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens;
 import de.baywa.tecb2bwebgwt.shared.dto.LoginDto;
 import de.baywa.tecb2bwebgwt.shared.dto.UserDto;
 
-import com.google.gwt.core.client.Scheduler;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.dispatch.rest.client.RestDispatch;
-import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.NoGatekeeper;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
@@ -19,6 +17,7 @@ import javax.inject.Inject;
 
 import de.knightsoftnet.navigation.client.session.Session;
 import de.knightsoftnet.validators.client.event.FormSubmitHandler;
+import de.knightsoftnet.validators.client.rest.helper.AbstractPresenterWithErrorHandling;
 import de.knightsoftnet.validators.client.rest.helper.AbstractRestCallback;
 import de.knightsoftnet.validators.client.rest.helper.EditorWithErrorHandling;
 
@@ -29,7 +28,8 @@ import de.knightsoftnet.validators.client.rest.helper.EditorWithErrorHandling;
  * @version $Rev$, $Date$
  *
  */
-public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresenter.MyProxy> {
+public class LoginPresenter extends
+    AbstractPresenterWithErrorHandling<LoginPresenter.MyProxy, LoginPresenter.MyView, LoginDto> {
 
 
   public interface MyView
@@ -76,7 +76,9 @@ public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresen
   @Override
   protected void onReveal() {
     super.onReveal();
-    Scheduler.get().scheduleDeferred(() -> LoginPresenter.this.getView().setFocusOnFirstWidget());
+    this.loginData.setInpUser(null);
+    this.loginData.setInpPwd(null);
+    this.getView().fillForm(this.loginData);
   }
 
   /**
