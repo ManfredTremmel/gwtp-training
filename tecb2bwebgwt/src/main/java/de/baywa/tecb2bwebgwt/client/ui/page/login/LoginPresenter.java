@@ -4,7 +4,6 @@ import de.baywa.tecb2bwebgwt.client.services.LoginLogoutRestService;
 import de.baywa.tecb2bwebgwt.client.ui.basepage.BasePagePresenter;
 import de.baywa.tecb2bwebgwt.client.ui.navigation.NameTokens;
 import de.baywa.tecb2bwebgwt.shared.dto.LoginDto;
-import de.baywa.tecb2bwebgwt.shared.dto.UserDto;
 
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.dispatch.rest.client.RestDispatch;
@@ -18,8 +17,8 @@ import javax.inject.Inject;
 import de.knightsoftnet.navigation.client.session.Session;
 import de.knightsoftnet.validators.client.event.FormSubmitHandler;
 import de.knightsoftnet.validators.client.rest.helper.AbstractPresenterWithErrorHandling;
-import de.knightsoftnet.validators.client.rest.helper.AbstractRestCallback;
 import de.knightsoftnet.validators.client.rest.helper.EditorWithErrorHandling;
+import de.knightsoftnet.validators.client.rest.helper.RestCallbackBuilder;
 
 /**
  * Activity/Presenter of the login, implementation.
@@ -86,13 +85,6 @@ public class LoginPresenter extends
    */
   public final void tryToLogin() {
     this.dispatcher.execute(this.service.login(this.loginData),
-        new AbstractRestCallback<LoginPresenter, LoginDto, MyView, UserDto>(this.getView(),
-            this.loginData, this.session) {
-
-          @Override
-          public void onSuccess(final UserDto presult) {
-            LoginPresenter.this.session.setUser(presult);
-          }
-        });
+        RestCallbackBuilder.buildLoginCallback(this.getView(), this.session));
   }
 }
