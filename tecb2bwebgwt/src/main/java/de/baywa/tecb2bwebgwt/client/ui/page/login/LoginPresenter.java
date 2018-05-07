@@ -14,11 +14,11 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import javax.inject.Inject;
 
-import de.knightsoftnet.navigation.client.session.Session;
+import de.knightsoftnet.gwtp.spring.client.rest.helper.AbstractPresenterWithErrorHandling;
+import de.knightsoftnet.gwtp.spring.client.rest.helper.EditorWithErrorHandling;
+import de.knightsoftnet.gwtp.spring.client.rest.helper.RestCallbackBuilder;
+import de.knightsoftnet.gwtp.spring.client.session.Session;
 import de.knightsoftnet.validators.client.event.FormSubmitHandler;
-import de.knightsoftnet.validators.client.rest.helper.AbstractPresenterWithErrorHandling;
-import de.knightsoftnet.validators.client.rest.helper.EditorWithErrorHandling;
-import de.knightsoftnet.validators.client.rest.helper.RestCallbackBuilder;
 
 /**
  * Activity/Presenter of the login, implementation.

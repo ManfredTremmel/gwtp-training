@@ -3,10 +3,10 @@ package de.baywa.tecb2bwebgwt.client;
 
 import com.google.web.bindery.event.shared.EventBus;
 
-import de.knightsoftnet.navigation.client.session.AbstractSession;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import de.knightsoftnet.gwtp.spring.client.session.AbstractSession;
 
 @Singleton
 public class SessionData extends AbstractSession {

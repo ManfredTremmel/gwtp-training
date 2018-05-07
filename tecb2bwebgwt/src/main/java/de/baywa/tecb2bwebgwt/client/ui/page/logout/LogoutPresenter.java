@@ -17,8 +17,8 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import javax.inject.Inject;
 
+import de.knightsoftnet.gwtp.spring.client.session.Session;
 import de.knightsoftnet.navigation.client.gatekeepers.LoggedInGatekeeper;
-import de.knightsoftnet.navigation.client.session.Session;
 
 /**
  * Activity/Presenter of the logout, implementation.

@@ -5,6 +5,7 @@
 
   <!-- gwt bean validator. -->
   <inherits name="de.knightsoftnet.mtwidgets.GwtMtWidgetsSpringGwtp" />
+  <inherits name="de.knightsoftnet.gwtp.spring.GwtpSpringIntegration" />
 
   <!-- gwt injection support -->
   <inherits name="com.google.gwt.inject.Inject"/>

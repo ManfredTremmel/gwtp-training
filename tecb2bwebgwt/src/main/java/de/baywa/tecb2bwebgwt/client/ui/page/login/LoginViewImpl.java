@@ -9,10 +9,10 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 
 import javax.inject.Inject;
 
+import de.knightsoftnet.gwtp.spring.client.rest.helper.AbstractViewWithErrorHandling;
 import de.knightsoftnet.validators.client.decorators.UniversalDecorator;
 import de.knightsoftnet.validators.client.editor.BeanValidationEditorDriver;
 import de.knightsoftnet.validators.client.event.FormSubmitEvent;
-import de.knightsoftnet.validators.client.rest.helper.AbstractViewWithErrorHandling;
 
 public class LoginViewImpl extends AbstractViewWithErrorHandling<LoginPresenter, LoginDto>
     implements LoginPresenter.MyView {

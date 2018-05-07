@@ -42,10 +42,10 @@ import de.baywa.tecb2bwebgwt.shared.dto.UserDto;
 import com.google.inject.Singleton;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
-import de.knightsoftnet.navigation.client.session.Session;
+import de.knightsoftnet.gwtp.spring.client.session.Session;
+import de.knightsoftnet.gwtp.spring.shared.models.User;
 import de.knightsoftnet.navigation.client.ui.navigation.NavigationPresenter;
 import de.knightsoftnet.navigation.client.ui.navigation.NavigationStructure;
-import de.knightsoftnet.navigation.shared.models.User;
 
 public class ApplicationModule extends AbstractPresenterModule {
 

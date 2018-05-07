@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 
-import de.knightsoftnet.navigation.shared.models.User;
+import de.knightsoftnet.gwtp.spring.shared.models.User;
 
 public class UserDto implements Serializable, User {
   private static final long serialVersionUID = 6580037177274322029L;
