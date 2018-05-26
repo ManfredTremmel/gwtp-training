@@ -20,9 +20,8 @@
   <properties>
     <!-- Convenience property to set the GWT version -->
     <gwt.version>2.8.2</gwt.version>
-    <validation-api.version>2.0.1.Final</validation-api.version>
-    <gwtp-spring-integration.version>0.54.1</gwtp-spring-integration.version>
-    <gwt-mt-widgets.version>0.54.1</gwt-mt-widgets.version>
+    <gwtp-spring-integration.version>0.55.0</gwtp-spring-integration.version>
+    <gwt-mt-widgets.version>0.55.0</gwt-mt-widgets.version>
     <gwt-pushstate.version>2.0.0.14</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
 
@@ -36,18 +35,6 @@
   </properties>
 
   <dependencies>
-     <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>
-      <version>${validation-api.version}</version><!--$NO-MVN-MAN-VER$-->
-    </dependency>
-    <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>
-      <version>${validation-api.version}</version>
-      <classifier>sources</classifier>
-      <scope>provided</scope>
-    </dependency>
 	<!-- set of gwt widgets, also include validation support -->
     <dependency>
       <groupId>de.knightsoft-net</groupId>
@@ -66,12 +53,12 @@
       <groupId>de.knightsoft-net</groupId>
       <artifactId>gwt-pushstate</artifactId>
       <version>${gwt-pushstate.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.tuckey</groupId>
       <artifactId>urlrewritefilter</artifactId>
       <version>${urlrewritefilter.version}</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
