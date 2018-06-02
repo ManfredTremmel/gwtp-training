@@ -20,8 +20,8 @@
   <properties>
     <!-- Convenience property to set the GWT version -->
     <gwt.version>2.8.2</gwt.version>
-    <gwtp-spring-integration.version>0.55.1</gwtp-spring-integration.version>
-    <gwt-mt-widgets.version>0.55.1</gwt-mt-widgets.version>
+    <gwtp-spring-integration.version>0.55.2</gwtp-spring-integration.version>
+    <gwt-mt-widgets.version>0.55.2</gwt-mt-widgets.version>
     <gwt-pushstate.version>2.0.0.14</gwt-pushstate.version>
     <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
 
